@@ -55,7 +55,9 @@ export const updateUser = async (req,res) => {
             },
         })
 
-        res.status(200).json(updatedUser)
+        const {password: userPassword, ...rest} = updatedUser
+
+        res.status(200).json(rest)
 
     } catch(err){
         console.log(err)
